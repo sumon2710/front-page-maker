@@ -6,9 +6,13 @@ import os
 
 app = Flask(__name__)
 
-# Path to wkhtmltopdf executable (update if installed elsewhere)
-WKHTMLTOPDF_PATH = r"C:\Program Files\wkhtmltopdf\bin\bin\wkhtmltopdf.exe"
-config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_PATH)
+import pdfkit
+
+# On Render (Linux), wkhtmltopdf is installed globally
+config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
+
+pdf_bytes = pdfkit.from_string(rendered, False, configuration=config)
+
 
 @app.route("/", methods=["GET"])
 def index():
