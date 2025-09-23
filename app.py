@@ -29,7 +29,7 @@ HTML_TEMPLATE = """
       background: #f1f1f1;
     }
     .page {
-      width: 90vw;
+      width: 100vw;
       min-height: 95vh;
       background: #fff;
       margin: auto;
