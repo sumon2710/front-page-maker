@@ -1,37 +1,61 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Front Page Maker</title>
-    <style>
-      body { font-family: Arial, sans-serif; margin: 30px; background:#f7f7f7; }
-      .container { max-width:700px; margin:auto; background:white; padding:20px; border-radius:8px; box-shadow:0 10px 20px rgba(0,0,0,0.05); }
-      label { display:block; margin-top:12px; font-weight:600; }
-      input[type=text], textarea { width:100%; padding:8px; margin-top:6px; box-sizing:border-box; }
-      button { margin-top:16px; padding:10px 18px; font-size:16px; cursor:pointer; }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2>Front Page Maker</h2>
-      <form method="post" action="/generate">
-        <label>Subject</label>
-        <input type="text" name="subject" placeholder="Enter subject" required />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front Page Maker</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    h2 { text-align: center; margin-bottom: 20px; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
+    input, textarea {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 6px;
+    }
+    .actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 20px; }
+    button {
+      flex: 1;
+      padding: 12px;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #6a11cb; }
+  </style>
+</head>
+<body>
+  <form method="post">
+    <h2>Front Page Maker</h2>
+    <label>Subject:</label>
+    <input type="text" name="subject" placeholder="Type like this => SUB - Subject name" />
+    <label>Title:</label>
+    <textarea name="title" rows="3" placeholder="Add new lines after text so it fits neatly on an A4 page" required></textarea>
 
-        <label>Title</label>
-        <input type="text" name="title" placeholder="Enter title" required />
+    <label>Submitted to:</label>
+    <textarea name="submitted_to" rows="4" required></textarea>
 
-        <label>Submitted to</label>
-        <textarea name="submitted_to" rows="3" placeholder="Enter Submitted to details"></textarea>
+    <label>Submitted by:</label>
+    <textarea name="submitted_by" rows="4" required></textarea>
 
-        <label>Submitted by</label>
-        <textarea name="submitted_by" rows="3" placeholder="Enter Submitted by details"></textarea>
-
-        <label>Footer (optional)</label>
-        <input type="text" name="footer" placeholder="Enter footer" />
-
-        <button type="submit">Generate PDF</button>
-      </form>
+    <div class="actions">
+      <button type="submit" formaction="/preview">Preview</button>
+      <button type="submit" formaction="/generate">Download PDF</button>
     </div>
-  </body>
+  </form>
+</body>
 </html>
