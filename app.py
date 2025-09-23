@@ -29,12 +29,13 @@ HTML_TEMPLATE = """
       background: #f1f1f1;
     }
     .page {
-      width: 100vw;
-      min-height: 95vh;
+      width:225mm;
+      min-height: 338mm;
       background: #fff;
       margin: auto;
       padding: 40px;
       box-sizing: border-box;
+      margin -top: 20px;
 
       border: 6px solid #000;
       outline: 2px solid #000;
